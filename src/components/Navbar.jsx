@@ -1,30 +1,14 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { authActions } from '../store/authReducer'
+import {NavLink} from 'react-router-dom'
 
 const Navbar = () => {
-  const isLogin = useSelector((state) => state.auth.isLogin)
-  const dispatch = useDispatch();
-
-  const logoutHandler = () =>{
-     dispatch(authActions.logout())
-  }
   return (
-   <nav className='Navv'>
-       <h1>Redux Counter</h1>
-       {isLogin && ( 
-       <ul className='Liststyle'>
-          <li>
-             My Records
-          </li>
-          <li>
-            Profile
-          </li>
-          <li>
-            <button onClick={logoutHandler}>Logout</button>
-          </li>
-       </ul>)}
-   </nav>
+    <>
+      <nav>
+          <NavLink to={"/"} className={({isActive})=>(isActive ? "active":"")}>Home</NavLink>
+          <NavLink to={"/about"}>About</NavLink>
+          <NavLink to={"/products"}>Products</NavLink>
+      </nav>
+    </>
   )
 }
 

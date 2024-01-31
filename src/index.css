@@ -11,73 +11,59 @@
   list-style-type: none;
 }
 
-section{
+h1,span{
   text-align: center;
-  background-color: cornflowerblue;
-  width: 80%;
-  margin: auto;
-  color: white;
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 1.5rem;
 }
 
-/* .Btn{
-  margin-top: 10px;
-} */
+.Home{
+  margin-top: 3rem;
+}
 
-/* .counter h1{
-  margin: 8px;
-} */
+h1{
+  margin-top: 2rem;
+}
 
-button.Todo{
+nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+ 
+}
+
+h2{
+  text-align: center;
+  margin-top: 2rem;
+}
+
+nav:hover{
+  cursor: pointer;
+ 
+}
+
+span{
+  color: cornflowerblue;
+}
+
+span:hover{
+  text-decoration: underline;
+}
+
+a.active {
+  font-weight: bold;
+  font-size: 16px;
+  font-style: italic;
+}
+
+button {
+  margin:1rem auto;
   background-color: cornflowerblue;
   color: #fff;
-  padding: 4px 8px;
-  border: none;
+  font-size: 18px;
+  padding: 10px 20px;
   outline: none;
-  font-family: 17px;
-  border-radius: 4px;
-  margin: 3rem  auto;
+  border: none;
   display: block;
-  
-}
-
-button:hover{
   cursor: pointer;
 }
 
-.Navv{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: cornflowerblue;
-  color: white;
-  padding: 1rem;
-}
-
-
-.welcomebtn{
-  background-color: rgb(63, 163, 235);
-  color: white;
-}
-
-.Liststyle{
-  display: flex;
-  align-items: center;
- 
-}
-
-.Liststyle li{
-  margin: 0 .5rem;
-}
-
-.Welcome{
-  text-align: center;
-  margin-top: 1rem;
- 
-}
-
-.Welcome button{
-  padding: .5rem;
-}
