@@ -1,20 +1,10 @@
-import { useNavigate } from "react-router-dom"
-
+import React from 'react'
 
 const Home = () => {
-    const navigate = useNavigate()
-    const navigateHandler = () => {
-    
-        setTimeout( () => {
-            navigate("/products")
-        },3000)
-    }
   return (
-   <div className='Home'>
-
-   <h1>I am Home </h1>
-   <button onClick={navigateHandler}>Go to Product</button>
-   </div>
+    <div>
+      <h1>I am Home</h1>
+    </div>
   )
 }
 
