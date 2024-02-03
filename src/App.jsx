@@ -5,12 +5,13 @@ import Home from "./pages/Home";
 import Product from "./pages/Product";
 import About from "./pages/About";
 import ProductDetails from "./pages/ProductDetails";
-
+import { Error } from "./pages/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Mainn />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
