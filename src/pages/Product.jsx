@@ -1,40 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, json, useLoaderData } from "react-router-dom";
+import User from "../components/User";
 
-const PRODUCTS = [
-  {
-    id: 1,
-    title: "Apple",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  },
-  {
-    id: 2,
-    title: "Piapple",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  },
-  {
-    id: 3,
-    title: "Orange",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  },
-];
+const Products = () => {
+  const products = useLoaderData();
 
-const Product = () => {
   return (
-    <div className="card">
-      {PRODUCTS.map((PRODUCT) => (
-        <Link to={`/product/${PRODUCT.title}`}>
-          <div className="product" key={PRODUCT.id}>
-            <p className="title">{PRODUCT.title}</p>
-            <p>{PRODUCT.description}</p>
+    <>
+      {products.map((product) => (
+        <Link to={`/product/${product.id}`} key={product.id}>
+          <div className="card">
+            <p>{product.title}</p>
+            <User userID={product.userId} />
           </div>
         </Link>
       ))}
-    </div>
+    </>
   );
 };
 
-export default Product;
+export default Products;
+
+export const loader = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  console.log(response)
+  if (!response.ok) {
+    throw json({ message: "Can't get posts now." }, { status: 200 });
+  } else {
+    const products = await response.json();
+    // console.log(products)
+    return products;
+  }
+};

@@ -1,72 +1,61 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
   font-family: "Poppins", sans-serif;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  color: cornflowerblue;
   text-decoration: none;
-  list-style-type: none;
 }
 
-
-h1{
-  text-align: center;
-  margin-top: 20px;
-}
-
-nav{
-  text-align: center;
-}
-
-nav a{
-  display: inline-block;
-  margin: 1rem;
-  /* transition: linear .4s; */
-}
-
-nav a.active{
-  font-weight: bolder;
+a.active {
+  font-weight: 600;
+  font-size: 20px;
   font-style: italic;
 }
 
-nav span:hover{
-  cursor: pointer;
-  color: cornflowerblue;
-  text-decoration: underline;
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
 }
 
-.product{
-  text-align: center;
-  display: block;
-  margin: 1rem;
+button {
   background-color: cornflowerblue;
-  padding: 2rem;
-  border-radius: 20px;
-  color: white;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+div {
+  text-align: center;
 }
 
 .card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-}
-
-.title{
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.btn{
-  padding: .5rem 1rem;
-  outline: none;
-  border: none;
+  width: 60%;
+  margin: auto;
   background-color: cornflowerblue;
-  color: white;
-  display: block;
-  margin: 1rem auto;
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.card p {
+  text-align: left;
+}
+
+.userName {
+  font-size: 18px;
+  font-weight: 800;
 }

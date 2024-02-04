@@ -1,7 +1,8 @@
-import { Outlet } from "react-router-dom"
-import Navbar from "../components/Navbar"
+import React from 'react'
+import Navbar from '../components/Navbar'
+import {Outlet} from 'react-router-dom'
 
-export const Mainn = () => {
+const Mainn = () => {
   return (
     <div>
         <Navbar />
@@ -9,3 +10,5 @@ export const Mainn = () => {
     </div>
   )
 }
+
+export default Mainn

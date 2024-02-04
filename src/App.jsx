@@ -1,11 +1,13 @@
-import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Mainn } from "./layouts/Mainn";
 import Home from "./pages/Home";
-import Product from "./pages/Product";
 import About from "./pages/About";
+import Product from "./pages/Product";
+import Mainn from "./layouts/Mainn";
+import Error from "./pages/Error";
 import ProductDetails from "./pages/ProductDetails";
-import { Error } from "./pages/Error";
+import { loader as productsLoader } from "./pages/Product";
+import { loader as productDetailsLoader } from "./pages/ProductDetails";
+
 
 const router = createBrowserRouter([
   {
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "/about",
@@ -23,11 +25,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/product",
-        element: <Product />
+        element: <Product />,
+        loader: productsLoader,
       },
       {
-        path: "/product/:title",
-        element: <ProductDetails />
+        path: "/product/:postID",
+        element: <ProductDetails />,
+        loader: productDetailsLoader,
       },
     ],
   },

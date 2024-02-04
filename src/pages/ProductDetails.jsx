@@ -1,21 +1,38 @@
-import React from 'react'
-import {  useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
+import { json, useLoaderData, useNavigate } from "react-router-dom";
+import User from "../components/User";
 
 const ProductDetails = () => {
-  const naigate = useNavigate();
+  const post = useLoaderData();
+  const { title, body, userId } = post;
+  const navigate = useNavigate();
 
-  const useNavigateHandler = () => {
-    naigate ("/product")
-  }
-  const {title} = useParams();
+  const navigateHandler = () => {
+    navigate("/products");
+  };
+
   return (
-    <div>
-      <h1>i am ProductDetails</h1>
-      <h1>Product title - {title}</h1>
-      <button className='btn' onClick={useNavigateHandler}>Go to Products</button>
-    </div>
-  )
-}
+    <>
+      <h1>{title}</h1>
+      <User userID={userId} />
+      <p>{body}</p>
+      <button onClick={navigateHandler}>Go to posts</button>
+    </>
+  );
+};
 
-export default ProductDetails
+export default ProductDetails;
+
+export const loader = async ({request,params}) => {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${params.postID}`
+  );
+  console.log(response);
+
+  if (!response.ok) {
+    throw json({ message: "Can't found your post." }, { status: 404 });
+  } else {
+    const post = await response.json();
+    console.log(post)
+    return post;
+  }
+};
